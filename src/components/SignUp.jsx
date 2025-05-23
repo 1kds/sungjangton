@@ -20,7 +20,7 @@ export default function SignUp() {
     const userInfo = { name, university, part }; // 예시로 participantCount를 1로 설정
 
     try {
-      await axios.post("http://3.35.217.248:8080/api/users/signup", userInfo); // Spring Boot가 8080에서 실행된다고 가정
+      await axios.post("/api/users/signup", userInfo); // Spring Boot가 8080에서 실행된다고 가정
       updateUserInfo({ name, university, part }); // context 저장
       navigate("/q1");
     } catch (error) {

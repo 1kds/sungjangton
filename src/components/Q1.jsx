@@ -6,7 +6,7 @@ import { useScore } from "./ScoreContext";
 
 const Q1 = () => {
   const navigate = useNavigate();
-  const { addScore, participantCount } = useScore();
+  const { addScore } = useScore();
 
   const handleAnswer = (key) => {
     addScore(key);
@@ -33,9 +33,7 @@ const Q1 = () => {
           fontSize: "16px",
           fontWeight: "bold",
         }}
-      >
-        현재까지 {participantCount}명이 참여했어요!
-      </div>
+      ></div>
 
       {/* 메인 콘텐츠 */}
       <main style={{ flex: 1 }}>
