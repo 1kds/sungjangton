@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "./Header";
+import Header1 from "./Header1";
 import { useScore } from "./ScoreContext";
 import axios from "axios";
 
@@ -33,14 +33,14 @@ export default function SignUp() {
     <div
       style={{
         width: "380px",
-        backgroundColor: "tan",
+        backgroundColor: "rgba(245, 236, 213, 1)",
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         margin: "0 auto",
       }}
     >
-      <Header />
+      <Header1 />
 
       <div
         style={{

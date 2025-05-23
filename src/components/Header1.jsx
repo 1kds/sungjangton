@@ -1,7 +1,10 @@
 import Back from "../assets/Back.svg";
 import Logo from "../assets/Logo.svg";
+import { useNavigate } from "react-router-dom";
 
-const HeaderSub = () => {
+const Header1 = () => {
+  const navigate = useNavigate();
+
   return (
     <header
       style={{
@@ -14,6 +17,17 @@ const HeaderSub = () => {
         backgroundColor: "rgba(207, 187, 153, 1)",
       }}
     >
+      {/* Back 아이콘 */}
+      <img
+        src={Back}
+        alt="Back"
+        onClick={() => navigate(-1)}
+        style={{
+          width: "24px",
+          height: "24px",
+        }}
+      />
+
       {/* 가운데 로고 (absolute로 중앙 고정) */}
       <img
         src={Logo}
@@ -32,4 +46,4 @@ const HeaderSub = () => {
   );
 };
 
-export default HeaderSub;
+export default Header1;

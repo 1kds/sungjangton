@@ -1,40 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import HeaderSub from "./HeaderSub";
 import MainLogo from "../assets/MainLogo.svg";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
 
 export default function MainPage() {
   const navigate = useNavigate();
-  const [userCount, setUserCount] = useState(null);
 
   const handleStartClick = () => {
     navigate("/signup");
   };
 
-  useEffect(() => {
-    // API 호출하여 참여자 수 가져오기
-    const fetchUserCount = async () => {
-      try {
-        const response = await axios.get(
-          "http://3.35.217.248:8080/api/users/count"
-        );
-        console.log(response.data);
-        setUserCount(response.data.count); // 가져온 참여자 수를 상태에 저장
-      } catch (error) {
-        console.error("참여자 수를 가져오는 데 실패했습니다:", error);
-        setUserCount(null); // 에러 발생 시 null로 설정
-      }
-    };
-
-    fetchUserCount();
-  }, []);
-
   return (
     <div
       style={{
         width: "380px",
-        backgroundColor: "tan",
+        backgroundColor: "rgba(245, 236, 213, 1)",
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
@@ -61,18 +40,19 @@ export default function MainPage() {
           src={MainLogo}
           alt="Main Logo"
           style={{
-            width: "200px",
-            marginBottom: "40px",
+            width: "375px",
+            marginBottom: "120px",
+            marginTop: "100px",
           }}
         />
 
         {/* Title */}
         <h1
           style={{
-            fontSize: "24px",
-            fontWeight: "bold",
+            fontSize: "32px",
+            fontWeight: "500",
             textAlign: "center",
-            marginBottom: "60px",
+            marginBottom: "20px",
           }}
         >
           봉사활동 성향 테스트
@@ -82,7 +62,7 @@ export default function MainPage() {
         <button
           onClick={handleStartClick}
           style={{
-            width: "317px",
+            width: "312px",
             height: "70px",
             padding: "12px 50px",
             fontSize: "20px",
@@ -92,23 +72,13 @@ export default function MainPage() {
             fontWeight: "bold",
             backgroundColor: "#fff",
             boxShadow: "0 2px 5px rgba(0,0,0,0.15)",
-            marginBottom: "40px",
+            marginBottom: "10px",
           }}
         >
           시작하기
         </button>
 
         {/* Participant Count */}
-
-        {userCount !== null ? (
-          <p style={{ fontSize: "16px", textAlign: "center", color: "#333" }}>
-            지금까지 {userCount}명이 참여했어요.
-          </p>
-        ) : (
-          <p style={{ fontSize: "16px", textAlign: "center", color: "#333" }}>
-            로딩 중...
-          </p>
-        )}
       </div>
     </div>
   );
